@@ -1,3 +1,3 @@
-declare module 'vtex.css-handles' {
-  export const useCssHandles
+declare module 'vtex.modal-layout' {
+  export const CloseButton
 }

@@ -1,6 +1,6 @@
 {
-  "custom-text": {
-    "component": "CustomText",
+  "layover": {
+    "component": "Layover",
     "composition": "children"
   }
 }

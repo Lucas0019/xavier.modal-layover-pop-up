@@ -1,0 +1,42 @@
+.layoverImg {
+  height: 13.25rem;
+  width: 100%;
+
+  border-radius: .25rem;
+
+  object-fit: cover;
+}
+
+@media screen and (min-width: 48rem) {
+  .layoverImg {
+    height: 24rem;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .layoverImg {
+    height: 17rem;
+  }
+}
+
+.imgNotFound {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 11.875rem;
+  width: 100%;
+
+  border-radius: .25rem;
+
+  background-color: var(--light-gray);
+}
+
+.paragraph {
+  margin: 0;
+  font-size: var(--text-size-sm);
+  line-height: 1.2rem;
+  text-align: center;
+}

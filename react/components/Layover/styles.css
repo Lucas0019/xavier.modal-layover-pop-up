@@ -1,0 +1,321 @@
+.layoverContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: left;
+
+  max-width: 100%;
+  height: auto;
+  width: 100vw;
+
+  border-radius: .5rem;
+  padding: 1.5rem;
+}
+
+@media screen and (min-width: 60rem) {
+  .layoverContainer {
+    width: 27rem;
+    height: 100%;
+  }
+
+}
+
+.layoverFirstText {
+  max-width: 23.25rem;
+
+  margin: 0;
+
+  font-size: var(--title-layover-modal);
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  width: max-content;
+}
+
+.layoverSecondText {
+  max-width: 23.25rem;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-size: var(--text-size-sm);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--black);
+  text-align: justify;
+  margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .layoverFirstText {
+    font-size: var(--text-size-lg);
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .layoverSecondText {
+    max-width: 24rem;
+  }
+}
+
+
+
+.layoverGreenText {
+  font-size: var(--text-size-lg);
+  text-align: center;
+}
+
+.layoverTextContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: left;
+
+  height: fit-content;
+  width: 100%;
+
+  gap: .5rem;
+  margin: .2rem 0;
+}
+
+.layoverForm,
+.successLayoverScreen {
+  display: flex;
+  flex-direction: column;
+
+  align-items: left;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+
+  gap: .6rem;
+  padding-top: var(--title-size-h3);
+}
+
+@media screen and (min-width: 60rem) {
+  .layoverForm,
+  .successLayoverScreen {
+    gap: .9rem;
+  }
+}
+
+.layoverInput {
+  height: 1.6rem;
+}
+
+.layoverInput,
+.layoverSecondInput {
+  font-size: var(--text-size-regular-base);
+  color: var(--neutral-color-5);
+  width: 50%;
+}
+
+.layoverInput:focus ,
+.layoverSecondInput:focus {
+  border-color: var(--neutral-color-9) !important;
+}
+
+.layoverInput::placeholder,
+.layoverSecondInput::placeholder {
+  color: var(--black-grey)
+}
+
+.layoverSecondInput {
+  height: 1.4rem;
+}
+
+.textMandatoryFields {
+  font-size: var(--text-size-sm);
+}
+
+.layoverButton {
+  border: 0;
+  font-size: var(--text-size-sm);
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-weight: 400;
+  padding: .9375rem 1.5625rem;
+  transition: all .2s cubic-bezier(.42,.15,.06,.66);
+  background: var(--black);
+  min-width: 13.75rem;
+  height: 3.125rem;
+  width: 13.75rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.layoverButton p {
+  color: #fff;
+}
+
+.layoverButton:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
+@media screen and (min-width: 48rem) {
+  .layoverInput,
+  .layoverButton {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 60rem)  {
+  .layoverInput,
+  .layoverButton {
+    width: 100%;
+    height: 3rem;
+  }
+
+  .layoverButton {
+    text-transform: uppercase;
+  }
+}
+
+
+.layoverCuponButton {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 2.375rem;
+  width: 100%;
+
+  border: none;
+  border-radius: .25rem;
+  margin-bottom: .2rem;
+
+  font-size: var(--text-size-sm);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 48rem) {
+  .layoverCuponButton {
+    width: 50%
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .layoverCuponButton {
+    width: 100%;
+    height: 48px;
+  }
+}
+
+.layoverCuponButton:hover:not(:disabled) {
+  cursor: pointer;
+}
+
+.layoverErrorMessage {
+  margin-bottom: .5rem;
+
+  font-size: var(--text-size-sm);
+
+  color: var(--call-to-action-color);
+}
+
+.layoverContainer .closeButton {
+  width: 3rem;
+  height: 0;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.layoverContainer .closeButton:hover {
+  background-color: transparent;
+}
+
+.layoverContainer .closeButton .closeButtonLabel {
+  padding: 0;
+  font-size: var(--text-size-null);
+}
+
+.layoverContainer .closeButton .closeButtonLabel::before {
+  content: '';
+  display: inline-block;
+
+  height: 1.75rem;
+  width: 1.75rem;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.00023 5.58599L11.9502 0.635986L13.3642 2.04999L8.41423 6.99999L13.3642 11.95L11.9502 13.364L7.00023 8.41399L2.05023 13.364L0.63623 11.95L5.58623 6.99999L0.63623 2.04999L2.05023 0.635986L7.00023 5.58599Z' fill='%23424242'/%3E%3C/svg%3E%0A") !important ;
+  background-repeat: no-repeat;
+  background-size: var(--text-size-sm);
+  margin-left: 1.8rem;
+  margin-top: .6rem;
+}
+
+
+.layoverInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: var(--title-size-h3);
+}
+
+.layoverInputs {
+  display: flex;
+  flex-direction: row;
+  margin: 0.2rem 0;
+  align-items: left;
+  gap: var(--text-size-regular);
+}
+
+.layoverRadioGenres {
+  display: flex;
+  flex-direction: row;
+  gap: var(--text-size-regular);
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: var(--text-size-regular);
+  margin-bottom: .2rem;
+}
+
+
+/* .layoverImgMobile,
+.layoverImgDesktop {
+
+} */
+
+
+.layoverHeadModal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.layoverCheckboxOptions {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 3rem;
+}
+
+.layoverCheckboxOptions label {
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-size: var(--text-size-sm);
+}
+
+.layoverCheckboxOptions label:not(:nth-child(3)) {
+  display: flex;
+  gap: .5rem;
+}
+
+.layoverInfoTextContent p {
+  margin-top: .5rem;
+  line-height: 1.5;
+  width: 22rem;
+  font-size: var(--text-size-sm)
+}
+
+.layoverInfoTextContent p a {
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+}
