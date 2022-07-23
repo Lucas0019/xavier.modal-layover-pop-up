@@ -20,7 +20,7 @@ interface ILayoverCupom {
   layoverImgDesktop?: string
 }
 
-export const CustomLayover: ComponentWithSchema<ILayoverCupom> = ({
+export const Layover: ComponentWithSchema<ILayoverCupom> = ({
   paragraphFirst,
   paragraphSecond,
   paragraphMsgSuccess,
@@ -209,7 +209,7 @@ export const CustomLayover: ComponentWithSchema<ILayoverCupom> = ({
   )
 }
 
-CustomLayover.schema = {
+Layover.schema = {
   type: 'object',
   name: 'Modal Layover',
   title: 'Modal Layover',
