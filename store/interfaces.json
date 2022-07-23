@@ -1,0 +1,6 @@
+{
+  "custom-text": {
+    "component": "CustomText",
+    "composition": "children"
+  }
+}
