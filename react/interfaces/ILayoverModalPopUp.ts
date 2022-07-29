@@ -3,6 +3,7 @@ export interface ILayoverModalPopUp {
   paragraphFirst?: string
   paragraphSecond?: string
   paragraphMsgSuccess?: string
+  paragraphInfoSuccess?: string
   layoverImg?: string
   layoverImgDesktop?: string
   linkPrivacyPolicy?: string

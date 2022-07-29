@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { CloseButton } from 'vtex.modal-layout'
 import { useDevice } from 'vtex.device-detector'
+import { FormattedMessage } from 'react-intl'
 
 import { LayoverImg } from './components/LayoverImg'
 import { LayoverInput } from './components/LayoverInput'
@@ -18,6 +19,7 @@ export const Layover: ComponentWithSchema<ILayoverModalPopUp> = ({
   paragraphFirst,
   paragraphSecond,
   paragraphMsgSuccess,
+  paragraphInfoSuccess,
   layoverImg,
   layoverImgDesktop,
   linkPrivacyPolicy,
@@ -36,13 +38,6 @@ export const Layover: ComponentWithSchema<ILayoverModalPopUp> = ({
   )
 
   const { isMobile } = useDevice()
-
-  const text01 = 'Inscreva-se na newsletter'
-
-  const text02 =
-    'Assine nossa newsletter para ganhar frete grátis em sua primeira compra.'
-
-  const text03 = 'Assinado com sucesso!'
 
   const loadItems = useCallback(() => {
     const body = {
@@ -114,13 +109,17 @@ export const Layover: ComponentWithSchema<ILayoverModalPopUp> = ({
           <section className={styles.layoverTextContainer}>
             <div className={styles.layoverHeadModal}>
               <p className={styles.layoverFirstText}>
-                {paragraphFirst ?? text01}
+                {paragraphFirst ?? (
+                  <FormattedMessage id="store/modal-layover.paragraph-first" />
+                )}
               </p>
               <CloseButton />
             </div>
 
             <p className={styles.layoverSecondText}>
-              {paragraphSecond ?? text02}
+              {paragraphSecond ?? (
+                <FormattedMessage id="store/modal-layover.paragraph-second" />
+              )}
             </p>
 
             {errorMessage && (
@@ -202,11 +201,14 @@ export const Layover: ComponentWithSchema<ILayoverModalPopUp> = ({
         <div className={styles.successLayoverScreen}>
           <div className={styles.layoverTextContainer}>
             <h2 className={styles.paragraphMsgSuccess}>
-              {paragraphMsgSuccess ?? text03}
+              {paragraphMsgSuccess ?? (
+                <FormattedMessage id="store/modal-layover.paragraph-title-success" />
+              )}
             </h2>
             <p className={styles.layoverSecondText}>
-              lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              {paragraphInfoSuccess ?? (
+                <FormattedMessage id="store/modal-layover.paragraph-mgs-success" />
+              )}
             </p>
           </div>
         </div>
@@ -235,6 +237,10 @@ Layover.schema = {
     paragraphMsgSuccess: {
       type: 'string',
       title: 'Texto de mensagem de sucesso',
+    },
+    paragraphInfoSuccess: {
+      type: 'string',
+      title: 'Texto de corpo de mensagem de sucesso',
     },
     layoverImg: {
       type: 'string',

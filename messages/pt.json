@@ -1,6 +1,6 @@
 {
-  "store/category-menu.filters": "Filtros",
-  "store/category-menu.size": "Tamanho",
-  "store/category-menu.clear-filters": "Limpar Filtros",
-  "store/category-menu.apply": "Aplicar"
+  "store/modal-layover.paragraph-first": "Inscreva-se na newsletter",
+  "store/modal-layover.paragraph-second": "Assine nossa newsletter para ganhar frete grátis em sua primeira compra.",
+  "store/modal-layover.paragraph-title-success": "Assinado com sucesso!",
+  "store/modal-layover.paragraph-mgs-success": "lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  "
 }
