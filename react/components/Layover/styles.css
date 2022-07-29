@@ -12,10 +12,25 @@
   padding: 1.5rem;
 }
 
-@media screen and (min-width: 60rem) {
+
+.layoverContainer .layoverImg {
+  width: 100%;
+  height: 100%;
+}
+
+.layoverImgDesktop {
+  height: 100%;
+}
+
+@media screen and (min-width: 64rem) {
   .layoverContainer {
-    width: 27rem;
+    width: 100%;
     height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
   }
 
 }
@@ -79,6 +94,8 @@
   margin: .2rem 0;
 }
 
+
+
 .layoverForm,
 .successLayoverScreen {
   display: flex;
@@ -91,10 +108,19 @@
   width: 100%;
 
   gap: .6rem;
-  padding-top: var(--title-size-h3);
+  padding-top:  1rem;
 }
 
 @media screen and (min-width: 60rem) {
+  .layoverForm {
+    width: 40%;
+    padding-top: 0;
+  }
+
+  .successLayoverScreen {
+    padding-top: 0
+  }
+
   .layoverForm,
   .successLayoverScreen {
     gap: .9rem;
@@ -109,7 +135,17 @@
 .layoverSecondInput {
   font-size: var(--text-size-regular-base);
   color: var(--neutral-color-5);
-  width: 50%;
+
+  width: 100%;
+  height: 40px;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  background: #e1e1e670;
+  outline: 0;
+  padding: 0 1.6rem;
+  border-radius: 5px;
+  font-size: .875rem;
+  border: 0;
 }
 
 .layoverInput:focus ,
@@ -247,7 +283,7 @@
   background-repeat: no-repeat;
   background-size: var(--text-size-sm);
   margin-left: 1.8rem;
-  margin-top: .6rem;
+  /* margin-top: .6rem; */
 }
 
 
@@ -261,10 +297,18 @@
 
 .layoverInputs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0.2rem 0;
   align-items: left;
-  gap: var(--text-size-regular);
+  /* gap: var(--text-size-regular); */
+}
+
+.layoverInputs input {
+  height: 2.625rem;
+}
+
+.layoverInputs input:nth-child(2) {
+  margin-bottom: 1rem;
 }
 
 .layoverRadioGenres {
@@ -292,7 +336,6 @@
 
 .layoverCheckboxOptions {
   border-bottom: 1px solid #e6e6e6;
-  padding-bottom: 3rem;
 }
 
 .layoverCheckboxOptions label {

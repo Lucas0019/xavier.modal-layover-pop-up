@@ -26,12 +26,18 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 11.875rem;
+  min-height: 12rem;
   width: 100%;
 
   border-radius: .25rem;
 
-  background-color: var(--light-gray);
+  background-color: #e1e1e670;
+}
+
+@media screen and (min-width: 64rem) {
+    .imgNotFound {
+      height: 40.125rem;
+    }
 }
 
 .paragraph {

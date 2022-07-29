@@ -10,24 +10,22 @@ import { validateEmail } from '../../utils/validateEmail'
 import httpPostClient from '../../services/httpPostClient'
 import type { RequestParams } from '../../services/httpPostClient'
 import type { ComponentWithSchema } from '../../interfaces/ComponentWithSchema'
+import type { ILayoverModalPopUp } from '../../interfaces/ILayoverModalPopUp'
 import styles from './styles.css'
 
-interface ILayoverCupom {
-  paragraphFirst?: string
-  paragraphSecond?: string
-  paragraphMsgSuccess?: string
-  layoverImg?: string
-  layoverImgDesktop?: string
-}
-
-export const Layover: ComponentWithSchema<ILayoverCupom> = ({
+export const Layover: ComponentWithSchema<ILayoverModalPopUp> = ({
+  entityMd,
   paragraphFirst,
   paragraphSecond,
   paragraphMsgSuccess,
   layoverImg,
   layoverImgDesktop,
+  linkPrivacyPolicy,
+  linkCookiesPolicy,
+  btnBackground,
+  btnColorText,
 }): JSX.Element => {
-  const [dateValue, setDateValue] = useState('')
+  const [userName, setUserName] = useState('')
   const [emailValue, setEmailValue] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isRegistered, setIsRegistered] = useState(false)
@@ -39,26 +37,34 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
 
   const { isMobile } = useDevice()
 
+  const text01 = 'Inscreva-se na newsletter'
+
+  const text02 =
+    'Assine nossa newsletter para ganhar frete grátis em sua primeira compra.'
+
+  const text03 = 'Assinado com sucesso!'
+
   const loadItems = useCallback(() => {
     const body = {
-      date: dateValue,
+      name: userName,
       email: emailValue,
       genre: selectedGenre,
+      promotions: checkboxPromotion,
       layoverType: 'informative',
     }
 
     const requestParams: RequestParams = {
-      url: '/api/dataentities/ML/documents',
+      url: `/api/dataentities/${entityMd}/documents`,
       body,
     }
 
     httpPostClient(requestParams)
-  }, [emailValue, dateValue, selectedGenre])
+  }, [entityMd, userName, emailValue, selectedGenre, checkboxPromotion])
 
   const handleSubmit = useCallback(() => {
     setIsLoading(true)
 
-    if (!dateValue || !emailValue) {
+    if (!userName || !emailValue) {
       setErrorMessage('Preencha os campos')
       setIsLoading(false)
 
@@ -83,13 +89,7 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
     setIsLoading(false)
     setIsRegistered(true)
     loadItems()
-  }, [dateValue, emailValue, loadItems, selectedGenre])
-
-  const text1 = 'Inscreva-se na newsletter'
-  const text2 =
-    'Coloque o seu e-mail para ganhar frete grátis em sua primeira compra, descobrir os lançamentos e manter-se atualizado das nossas promoções.'
-
-  const text3 = 'Assinado com sucesso'
+  }, [userName, emailValue, loadItems, selectedGenre])
 
   return (
     <aside className={styles.layoverContainer}>
@@ -114,13 +114,13 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
           <section className={styles.layoverTextContainer}>
             <div className={styles.layoverHeadModal}>
               <p className={styles.layoverFirstText}>
-                {paragraphFirst ?? text1}
+                {paragraphFirst ?? text01}
               </p>
               <CloseButton />
             </div>
 
             <p className={styles.layoverSecondText}>
-              {paragraphSecond ?? text2}
+              {paragraphSecond ?? text02}
             </p>
 
             {errorMessage && (
@@ -139,19 +139,19 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
           <section className={styles.layoverInputContainer}>
             <div className={styles.layoverInputs}>
               <LayoverInput
+                type="text"
+                placeholder="Seu nome"
+                onChangeText={setUserName}
+                value={userName}
+                className={styles.layoverSecondInput}
+              />
+
+              <LayoverInput
                 type="email"
                 placeholder="Insira aqui seu e-mail"
                 onChangeText={setEmailValue}
                 value={emailValue}
                 className={styles.layoverInput}
-              />
-
-              <LayoverInput
-                type="date"
-                placeholder="Data de nascimento"
-                onChangeText={setDateValue}
-                value={dateValue}
-                className={styles.layoverSecondInput}
               />
             </div>
             <span className={styles.textMandatoryFields}>
@@ -161,11 +161,7 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
 
           <section className={styles.layoverCheckboxOptions}>
             <LayoverCheckbox
-              options={[
-                'Permissão para finalidades de marketing direto',
-                'Permissão para finalidades de qualificação.',
-                'Permissão para cessão de dados a terceiros para finalidades de marketing.',
-              ]}
+              options={['Li e concordo com as política de privacidades']}
               value={checkboxPromotion}
               setValue={setCheckboxPromotion}
             />
@@ -176,13 +172,16 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
               Pretendo receber novidades e promoções de acordo com o meu perfil
               e a minha personalidade.
               <a
-                href="https://www.google.com/policies/privacy/"
+                href={linkCookiesPolicy}
                 className={styles.layoverSecondInfoText}
               >
                 Politica de privacidade.
               </a>{' '}
               e{' '}
-              <a className={styles.layoverSecondInfoText} href="/#">
+              <a
+                className={styles.layoverSecondInfoText}
+                href={linkPrivacyPolicy}
+              >
                 Politica de cookies
               </a>
             </p>
@@ -192,15 +191,22 @@ export const Layover: ComponentWithSchema<ILayoverCupom> = ({
             type="button"
             className={styles.layoverButton}
             onClick={handleSubmit}
+            style={{ backgroundColor: btnBackground }}
           >
-            <p>{isLoading ? '. . .' : 'Enviar'}</p>
+            <p style={{ color: btnColorText }}>
+              {isLoading ? '. . .' : 'Enviar'}
+            </p>
           </button>
         </div>
       ) : (
         <div className={styles.successLayoverScreen}>
           <div className={styles.layoverTextContainer}>
-            <p className={styles.paragraphMsgSuccess}>
-              {paragraphMsgSuccess ?? text3}
+            <h2 className={styles.paragraphMsgSuccess}>
+              {paragraphMsgSuccess ?? text03}
+            </h2>
+            <p className={styles.layoverSecondText}>
+              lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>
@@ -214,6 +220,10 @@ Layover.schema = {
   name: 'Modal Layover',
   title: 'Modal Layover',
   properties: {
+    entityMd: {
+      type: 'string',
+      title: 'Entidade do Master Data',
+    },
     paragraphFirst: {
       type: 'string',
       title: 'Texto de cadastro 1',
@@ -239,6 +249,22 @@ Layover.schema = {
       widget: {
         'ui:widget': 'image-uploader',
       },
+    },
+    linkPrivacyPolicy: {
+      type: 'string',
+      title: 'Link para política de privacidade',
+    },
+    linkCookiesPolicy: {
+      type: 'string',
+      title: 'Link para política de cookies',
+    },
+    btnBackground: {
+      type: 'string',
+      title: 'Cor de fundo do botão',
+    },
+    btnColorText: {
+      type: 'string',
+      title: 'Cor do texto do botão',
     },
   },
 }

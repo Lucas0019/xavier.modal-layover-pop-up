@@ -1,0 +1,64 @@
+:root {
+  --store-primary-color: #00a699;
+  --store-primary-color-darken: #009589;
+  --store-primary-color-light: #00c8b8;
+
+  --store-secondary-color: #00a699;
+  --store-secondary-color-darken: #009589;
+  --store-secondary-color-light: #00c8b8;
+
+  --call-to-action-color: #f34543;
+  --call-to-action-color-darken: #f12825;
+  --call-to-action-color-light: #f45755;
+
+  --promotional-tag-color: #f1f4a3;
+  --promotional-tag-color-darken: #ebef7e;
+  --promotional-tag-color-light: #f2f5ac;
+
+  --neutral-color-1: #f1f2f3;
+  --neutral-color-2: #e3e6e8;
+  --neutral-color-3: #c7ccd1;
+  --neutral-color-4: #9099a2;
+  --neutral-color-5: #979797;
+  --neutral-color-6: #5d666f;
+  --neutral-color-7: #e6e6e6
+  --neutral-color-8: #171a1c;
+  --neutral-color-9: #48494c10
+
+  --white: #fff;
+  --black: #000;
+  --black-grey: #333;
+  --light-gray: #f7f7f7;
+  --gray: #e8e8e8;
+
+  --text-main-font: "Nunito", -apple-system, system-ui, BlinkMacSystemFont,
+    sans-serif;
+  --text-secondary-font: "Avenir", -apple-system, system-ui, BlinkMacSystemFont,
+    sans-serif;
+  --text-size-base: 16px;
+  --text-size-title-base: 42px;
+
+  --text-weight-lighter: 300;
+  --text-weight-regular: 400;
+  --text-weight-medium: 500;
+  --text-weight-semi-bold: 600;
+  --text-weight-bold: 700;
+  --text-weight-extra-bold: 800;
+
+  --text-size-null: 0;
+
+  --text-size-xxs: 0.625rem;
+  --text-size-xs: 0.75rem;
+  --text-size-sm: 0.875rem;
+  --text-size-regular: 1rem;
+  --text-size-regular-base: .75rem;
+  --text-size-lg: 1.125rem;
+  --text-size-xl: 1.25rem;
+
+  --title-size-h1: 2.625rem;
+  --title-size-h2: 2.375rem;
+  --title-size-h3: 2rem;
+  --title-size-h4: 1.625rem;
+  --title-size-h5: 1.375rem;
+  --title-layover-modal: 1.6rem
+}
